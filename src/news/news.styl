@@ -1,0 +1,186 @@
+
+$itemBackground = #fff
+$itemSeconBackground = #9fdeff
+$linkColor = #555
+$hoverLinkColor = darken($linkColor, 30%)
+$bodyBackgrnd = #f2efef
+$defaulFontSize = 13px
+$defaulLineHeight = 19px
+$transitionSpeed = max-height .25s ease-in, clip-path .25s ease-in, background .15s ease-in,  color .25s ease-in, left .25s linear, top .25s linear, width .25s linear, height .25s linear, object-fit .25s ease-in
+$defaultBAckgroundShadow = 0px 0px 11px #000
+$itemHeight = 260
+$itemWidth = 340
+
+.hidden
+  display block
+
+.wrapper
+  display flex
+  flex-wrap wrap
+  justify-content space-between
+  width 100%
+  padding 20px 5%
+  box-sizing border-box
+  max-width 1280px
+  margin auto
+  text-align center
+  background $bodyBackgrnd
+
+.item
+  width $itemWidth px
+  height $itemHeight px
+  max-height $itemHeight px
+  margin 0px auto 40px
+  box-sizing content-box
+  position relative
+  z-index 1
+  text-align center
+  &:hover
+    z-index 9
+
+
+
+  .itemContent
+    height  $itemHeight px
+    min-height  $itemHeight px
+    max-height  $itemHeight px
+    width calc(100% - 20px)
+    position absolute
+    margin 0 auto
+    padding 0
+    box-sizing border-box
+    top 0px
+    left 0px
+    overflow hidden
+    text-align center
+    transition $transitionSpeed
+    filter drop-shadow(0px 0px 3px rgba(50, 50, 0, 0.5))
+    &:hover
+      & .itemLinkClipWrapper
+        height $itemHeight - 120 px
+        max-height $itemHeight - 120px
+        width $itemWidth - 110px
+        padding 25px 15px 25px 25px
+        vertical-align middle
+        left 46px
+        & a
+          color $linkColor
+      & .imageClipWrapper
+        background $itemSeconBackground
+        clip-path polygon(
+                0% 25px,
+                25px 0%,
+                100% 0%,
+                100% 0px,
+                100% calc(100% - 25px),
+                calc(100% - 25px) 100%,
+                0px 100%,
+                0 100%
+        )
+      & .itemImageWrapper
+        clip-path polygon(
+                0% 40px,
+                40px 0%,
+                100% 0%,
+                100% 0px,
+                100% calc(100% - 40px),
+                calc(100% - 40px) 100%,
+                0px 100%,
+                0 100%
+        )
+        & img
+          width 110%
+          filter: saturate(100%)
+
+
+
+    .imageClipWrapper
+      width 100%
+      height 100%
+      position relative
+      background $itemBackground
+      transition $transitionSpeed
+      clip-path polygon(
+              0% 20px,
+              20px 0%,
+              100% 0%,
+              100% 0px,
+              100% calc(100% - 20px),
+              calc(100% - 20px) 100%,
+              0px 100%,
+              0 100%
+      )
+
+
+
+      .itemLink
+        width 100%
+        height 100%
+        position absolute
+        overflow hidden
+        top 0px
+        left 0px
+
+    .itemImageWrapper
+      width 100%
+      height calc(100% - 12px)
+      transition $transitionSpeed
+      position absolute
+      overflow hidden
+      top 6px
+      left 0px
+      display flex
+      clip-path polygon(
+              0% 45px,                 /* верхняя левая */
+              45px 0%,                 /* верхняя левая */
+              100% 0%,                /* верхняя правая */
+              100% 0px,               /* верхняя правая */
+              100% calc(100% - 45px),  /* нижняя правая */
+              calc(100% - 45px) 100%,  /* нижняя правая */
+              0px 100%,               /* нижняя левая */
+              0 100%      /* нижняя левая */
+      )
+      & img
+        object-fit cover
+        display flex
+        width 100%
+        min-height 100%
+        transition $transitionSpeed
+        filter saturate(80%)
+
+
+
+    .itemLinkClipWrapper
+      max-height: 30px
+      height 30px
+      overflow hidden
+      width 275 px
+      margin 0px
+      position absolute
+      display flex
+      align-content center
+      bottom 60px
+      left 0px
+      background rgba(255,255,255,0.95)
+      padding 3px 10px 5px 30px
+      box-sizing border-box
+      text-align left
+      transition $transitionSpeed
+      & a
+        text-decoration none
+        font-weight 300
+        font-family Arial, "Helvetica Neue", Helvetica, sans-serif
+        overflow hidden
+        word-wrap break-word
+        width 100%
+        flex 1 1 auto
+        min-height 100%
+        margin auto
+        position relative
+        padding 0
+        color $linkColor
+        transition $transitionSpeed
+        font-size $defaulFontSize
+        line-height $defaulLineHeight
+        &:hover
+          color $hoverLinkColor
