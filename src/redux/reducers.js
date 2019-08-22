@@ -66,10 +66,9 @@ export default function reducer(state= emptyInitialState, action) {
             let contentData = [];
             let newContentArray = thisStore.content;
             for (let i = 0; i < responsedContent.length; i++) {
-
-                let itemName = responsedContent[i].text.split('http')[0].length > 70 ? responsedContent[i].text.slice(0, 70)+' [подробнее]' : responsedContent[i];
+                let itemName = responsedContent[i].text.length > 70 ? responsedContent[i].text.slice(0, 70)+' [подробнее]' : responsedContent[i].text;
                 if (responsedContent[i].text.split('http')[1]){
-                    itemName = 'http'+responsedContent[i].text.split('http')[1];
+                    itemName = 'http'+responsedContent[i].text;
                 }
                 let itemLink = 'https://vk.com/' + willGetDomain + '?w=wall' + responsedContent[i].owner_id + '_' + responsedContent[i].id;
                 let imageUrl = 'https://natureproducts.com.ua/userfiles/shop/large/100_shinka-posolska-vk-vs-.jpg';
